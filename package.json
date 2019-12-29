@@ -1,0 +1,16 @@
+{
+  "name": "server",
+  "version": "3.0.0",
+  "description": "",
+  "main": "init.ts",
+  "scripts": {
+    "start": ""
+  },
+  "keywords": [],
+  "author": "alihejrati",
+  "license": "ISC",
+  "devDependencies": {
+    "ts-node": "^8.5.4",
+    "typescript": "^3.7.4"
+  }
+}
