@@ -4,6 +4,7 @@ import * as currentDir from 'current-dir';
 
 async function init() {
     global.semaphore = new EventEmitter();
+    global.CONFIG = {};
 
     process.argv[2] = process.argv[2] || 'server/http';
     process.argv[3] = process.argv[3] || 'server';
