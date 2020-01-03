@@ -1,0 +1,6 @@
+{
+    "cookie": {
+        "expire": 86400000,
+        "name": "SERVER:server/http"
+    }
+}

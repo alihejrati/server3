@@ -1,0 +1,14 @@
+{
+  "api-key": "AIzaSyAerWJDYBIzA5WKZXqYf1am8ebriifCX-I",
+  "databaseURL": "https://nobina-server.firebaseio.com",
+  "type": "service_account",
+  "project_id": "nobina-server",
+  "private_key_id": "7f5d2022c1e989ddc29c9038302cf9023fe4ca85",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQChU56TBGHNwrIn\nmLJPTmd3ht1HVMkOuzZLXWFg+AFFq0o2l14AgfD/gdPVX+4GOwZRO0athhKiyNXr\nBUzrj311rUZscYpYjeLoCpXskBHismrRuZ4XzCoMW82ceH0itJ064+XMjaTtR9XE\nzzf4Mp5IVI/8BNqUvqk/cMXpmOv/Fn6K9VXEf9LnuiHhJ6gXAvhAmvJN4FGVr0ya\nTzRUBd2ku3UYU0/bjEmbzob9mx5nBDChDM8T+pwyxwGDsnnvutInXGlaIuJv7Oww\nqEwdbLjMfxVeRLeW4Waca7iXeQIJLQ902z8B5v4YfGIvQopA0hRJvU/lS/S/EwLu\n+PzHRBgPAgMBAAECggEAQi6BJ7PNAbHFD0xrnfA+rwCzJ0+nebUglXNV/wdO0ktu\nUw3uwMuN1+vlQKwtg/3T3iAwowAVBhXY+CTBBQPlBpESimtbw29VrjalgZoq1DK4\ncpgwvHeDqnVA2NdvEn1A4Udb3voetj7Zefc+cUImv+p89PjyyMGcwgtcDbQv4IGt\noq+7VwiDcfCut7xv0scPRAqYgGAqVnmTtlGPEqEg7wfBmVv8NpUdrROy59XkdQpC\n06x0Yodp3WE+1MLCA061HTlPzw5N5bAssXEfEJ+U06enMQbw4q0pXbP7sUZKSiiY\nvmfkUCxJXNKEwupBd2/pjnEJcAb/mCsTi4U1FuazKQKBgQDMcohslcPWzL24XN61\nle4jHJUUwB1upto1AbP1ISSaTz7gAyE1yF8ZkY54MaXhMH6s+vudIBZjW8Qqh65/\naB9mXZ+VTezpFTaa9pLzBmm1acFAXm+anOBVfzhjYHs5pHV8r/OmF6AZ4GCxuzSq\nqhe2fW+ptrJITXBdJPA6DXCsNwKBgQDKAY9Yr4/NtekDv3PLiyIAOx6X4ygQUBNA\n/RfCsaDWZv7b9mHVkblC5DiaM4Ff01lqPrgOQCncdfQmekZKgNIYqHgL/WmsZhNp\n5ZypwbuK6Hnsb4l0DFGrQ8efYM1PpuZdWzOCHoNNdpi0rBI2M9qo7BOuY6bl9/fX\nqe3J91p26QKBgGrQa/ZPSMIwte5clv7IFmLBzCHLPZVSFy8adKrdZgI45OCkwfUX\nepghNA4X4lKEw6ocdtjgqtG+X/7YZJKsE7unrniS/fPI4X6U1LGj6Baf6hd3P1fI\nHmyMyykgf0Dea4N5ahKcxUi/scUpyZpgw4LUhkJk8UBVNR907Q1neDaBAoGAYdLZ\nkTALqqnSOp9nOwWYpJX8nb9Ccovklw85h24vnkRoXSr2e89C8RLGGl6g4z/dSCcx\nSK1n2DxCzLNgAMpbc9d5swy4NOWFtz2bXVXVNVKZYJcu8ETa894x+IuPQWhonIMC\n8ZtHKKcrEitV8muwEyen7EaT1z/7BLRk0+52H6kCgYAgafjAC/VJQXSzBuCFjLgn\n2V2ErZF8SnS29S/noQgUDvxEWRaqZVdtlWgZf2oIN3CaOT+gpvxWuzcl/eWveAaD\n4DKaM0AfReR47AFKAt6vl4OeQVqV0Ms/Dl+7tVHf6fu82fgIx5k18ujbU6N3MqCu\ntXB/iZeEDOAHwdhGXZ6h7Q==\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-eozb3@nobina-server.iam.gserviceaccount.com",
+  "client_id": "100142168470056041048",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-eozb3%40nobina-server.iam.gserviceaccount.com"
+}

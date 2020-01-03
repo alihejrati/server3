@@ -1,8 +1,16 @@
 {
+    "include": ["**/*"],
     "compilerOptions": {
-        "lib": ["es2018", "dom"]
-    },
-    "include": [
-        "**/*"
-    ]
+        "outDir": "./compiled",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "lib": ["es2018", "dom"],
+        "baseUrl": ".",
+        "paths": {
+            "@code/*": ["code/*"],
+            "@file/*": ["file/*"],
+            "@kernel/*": ["code/kernel/*"],
+            "@source/*": ["code/source/*"]
+        }
+    }
 }

@@ -1,0 +1,9 @@
+{
+    "/test/test2": {
+        "enable": true,
+        "captcha": false,
+        "role": [
+            "vip"
+        ]
+    }
+}

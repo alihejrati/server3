@@ -1,0 +1,11 @@
+{
+    "/test/test2": {
+        "enable": true,
+        "captcha": false,
+        "controller": ["*"],
+        "method": ["get", "post", "put", "delete"],
+        "role": ["vip"],
+        "plan": [],
+        "permission": []
+    }
+}

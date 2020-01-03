@@ -1,0 +1,111 @@
+{
+    "mongodb": {
+        "db": {
+            "collection": {
+                "email": {
+                    "schema": {
+                        "code": {
+                            "required": true,
+                            "type": "String"
+                        },
+                        "mailOptions": {
+                            "required": true,
+                            "type": "Object"
+                        },
+                        "response": {
+                            "required": true,
+                            "type": "Object"
+                        },
+                        "successful": {
+                            "required": true,
+                            "type": "Boolean"
+                        },
+                        "transporter": {
+                            "required": true,
+                            "type": "Object"
+                        }
+                    },
+                    "seeder": []
+                },
+                "request": {
+                    "schema": {
+                        "_": {
+                            "required": true,
+                            "type": "Object"
+                        },
+                        "response": {
+                            "type": "Object"
+                        }
+                    },
+                    "seeder": []
+                },
+                "socket": {
+                    "schema": {
+                        "_": {
+                            "required": true,
+                            "type": "Object"
+                        },
+                        "event": {
+                            "required": true,
+                            "type": "Object"
+                        },
+                        "message": {
+                            "required": false,
+                            "type": "Object"
+                        },
+                        "socketId": {
+                            "required": true,
+                            "type": "String",
+                            "unique": true
+                        },
+                        "state": {
+                            "enum": ["connect", "event", "disconnect"],
+                            "required": true,
+                            "type": "String"
+                        }
+                    },
+                    "seeder": []
+                },
+                "user": {
+                    "schema": {
+                        "account": {
+                            "default": {
+                                "charge": 0
+                            },
+                            "type": "Object"
+                        },
+                        "role": {
+                            "default": {
+                                "guest": true
+                            },
+                            "type": "Object"
+                        },
+                        "plan": {
+                            "default": {
+                                "guest": true
+                            },
+                            "type": "Object"
+                        },
+                        "uid": {
+                            "required": true,
+                            "type": "String",
+                            "unique": true
+                        }
+                    },
+                    "seeder": []
+                }
+            },
+            "dsn": "mongodb://localhost:27017/SERVER2#db"
+        }
+    },
+    "mysql": {},
+    "oracle": {},
+    "redis": {
+        "db": {
+            "dsn": {
+                "host": "localhost",
+                "port": 6379
+            }
+        }
+    }
+}
