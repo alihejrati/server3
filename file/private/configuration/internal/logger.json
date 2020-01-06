@@ -1,8 +1,0 @@
-{
-    "map": {
-        "database": "info",
-        "request": "info",
-        "warning": "warn",
-        "watchdog": "trace"
-    }
-}

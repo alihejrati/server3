@@ -10,7 +10,7 @@ async function init() {
     process.argv[3] = process.argv[3] || 'server';
 
     register({ verbose: false }, currentDir());
-
+    
     await Promise.all([
         require('@kernel/functions/init').default()
     ]);
@@ -22,7 +22,7 @@ async function init() {
     //     console.error(error);
     // }
 
-    console.debug('------------------>', process.argv[2], process.argv[3]);
+    // console.log['info']('------------------>', process.argv[2], process.argv[3]);
 }
 
 init();

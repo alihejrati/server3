@@ -1,8 +1,0 @@
-{
-    "agenda": {
-        "address": "mongodb://localhost:27017/SERVER2#jobs"
-    },
-    "jwt": {
-        "secret": "secret-CODE"
-    }
-}
