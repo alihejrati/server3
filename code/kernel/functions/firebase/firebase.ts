@@ -6,7 +6,6 @@ async function $firebase() {
             credential: admin.credential.cert(serviceAccount),
             databaseURL: serviceAccount.databaseURL
         });
-
         global.firebase = {
             admin: admin,
             db: admin.firestore(),

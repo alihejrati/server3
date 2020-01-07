@@ -10,19 +10,17 @@ async function init() {
     process.argv[3] = process.argv[3] || 'server';
 
     register({ verbose: false }, currentDir());
-    
+
     await Promise.all([
         require('@kernel/functions/init').default()
     ]);
-
-    // try {
-    //     const app = await (await import(`../source/${process.argv[2]}/app`)).default;
-    //     app();
-    // } catch (error) {
-    //     console.error(error);
-    // }
-
-    // console.log['info']('------------------>', process.argv[2], process.argv[3]);
+    
+    try {
+        const app = await (await import(`@source/${process.argv[2]}/app`)).default;
+        app();
+    } catch (error) {
+        console.log['error'](error);
+    }
 }
 
 init();
