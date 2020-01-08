@@ -4,6 +4,7 @@ declare module NodeJS {
     interface Global {
         // kernel:
         semaphore: import('events').EventEmitter,
+        spinners: any,
         firebase: { admin: any, db: any, serviceAccount: any },
         CONFIG: any,
         // sleep: typeof import('@kernel/functions/sleep/sleep').default,
@@ -14,6 +15,7 @@ declare module NodeJS {
 }
 
 declare const semaphore: import('events').EventEmitter;
+declare const spinners: any;
 declare const firebase: { admin: any, db: any, serviceAccount: any };
 declare const CONFIG: any;
 // declare const sleep: typeof import('@kernel/functions/sleep/sleep').default;
