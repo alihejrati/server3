@@ -1,5 +1,4 @@
 const log4js = require('log4js').getLogger();
-let map = {};
 let collectionLog;
 
 async function purelog(level: string, sublevel: string, ...parameters) {
@@ -19,7 +18,7 @@ async function purelog(level: string, sublevel: string, ...parameters) {
         log4js.level = 'trace';
         log4js['trace'](obj);
     } finally {
-        // collectionLog.doc().set(obj);
+        CONFIG['\\logger'].repository.firebase ? collectionLog.doc().set(obj) : null;
     }
 }
 
@@ -33,7 +32,7 @@ async function log(level: string, ...parameters) {
         }
         purelog(LEVEL, level, ...parameters);
     } else {
-        purelog(map[level] || level, level, ...parameters);
+        purelog(CONFIG['\\logger'].map[level] || level, level, ...parameters);
     }
 }
 
