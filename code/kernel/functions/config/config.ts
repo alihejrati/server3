@@ -15,6 +15,7 @@ async function config() {
                 CONFIG[change.doc.id] = {
                     ...change.doc.data()
                 }
+                console.info(change.doc.id, 'global!');
                 // console.info('**********************************')
                 // console.log['fatal']((CONFIG['\\database']), '#########', change.type)
                 // console.info('**********************************')
