@@ -10,7 +10,8 @@
             "@code/*": ["code/*"],
             "@file/*": ["file/*"],
             "@kernel/*": ["code/kernel/*"],
-            "@source/*": ["code/source/*"]
+            "@source/*": ["code/source/*"],
+            "@server/*": ["code/source/server/*"]
         }
     }
 }

@@ -1,6 +1,10 @@
 async function config() {
     if (process.argv[3]) {
         await new Promise((resolve, reject) => {
+            CONFIG['@model'] = {
+                mongodb: {},
+                redis: {}
+            };
             firebase.db.collection('config').get()
                 .then(querySnapshot => {
                     querySnapshot.forEach(doc => {
@@ -15,7 +19,6 @@ async function config() {
                 CONFIG[change.doc.id] = {
                     ...change.doc.data()
                 }
-                console.info(change.doc.id, 'global!');
                 // console.info('**********************************')
                 // console.log['fatal']((CONFIG['\\database']), '#########', change.type)
                 // console.info('**********************************')
@@ -24,15 +27,49 @@ async function config() {
         firebase.db.collection('config').doc('\\database').collection('mongodb').onSnapshot(snapshot => {
             snapshot.docChanges().forEach(change => {
                 if (change.type == 'added') {
-
+                    const [database, collection] = change.doc.id.split(':');
+                    if (!npm.directoryExists.sync(`@server/http/services/${CONFIG['\\database'].mongodb[database].category}/${database}/${collection}`)) {
+                        npm.mkdirp.sync(`${npm.currentDir()}/code/source/server/http/services/${CONFIG['\\database'].mongodb[database].category}/${database}/${collection}`);
+                        npm.fs.writeFileSync(`${npm.currentDir()}/code/source/server/http/services/${CONFIG['\\database'].mongodb[database].category}/${database}/${collection}/config.json`, JSON.stringify({
+                            dbms: 'mongodb',
+                            database: database,
+                            collection: collection
+                        }));
+                        npm.copydir(`${npm.currentDir()}/file/private/database/mongodb`, `${npm.currentDir()}/code/source/server/http/services/${CONFIG['\\database'].mongodb[database].category}/${database}/${collection}`, {
+                            utimes: true,
+                            mode: true,
+                            cover: true
+                        }, err => {
+                            if (err) {
+                                console.log['error'](err);
+                            } else {
+                            }
+                        });
+                    }
                 } else if (change.type == 'modified') {
-
+                    const [database, collection] = change.doc.id.split(':');
+                    if (!npm.directoryExists.sync(`@server/http/services/${CONFIG['\\database'].mongodb[database].category}/${database}/${collection}`)) {
+                        npm.mkdirp.sync(`${npm.currentDir()}/code/source/server/http/services/${CONFIG['\\database'].mongodb[database].category}/${database}/${collection}`);
+                        npm.fs.writeFileSync(`${npm.currentDir()}/code/source/server/http/services/${CONFIG['\\database'].mongodb[database].category}/${database}/${collection}/config.json`, JSON.stringify({
+                            dbms: 'mongodb',
+                            database: database,
+                            collection: collection
+                        }));
+                        npm.copydir(`${npm.currentDir()}/file/private/database/mongodb`, `${npm.currentDir()}/code/source/server/http/services/${CONFIG['\\database'].mongodb[database].category}/${database}/${collection}`, {
+                            utimes: true,
+                            mode: true,
+                            cover: true
+                        }, err => {
+                            if (err) {
+                                console.log['error'](err);
+                            } else {
+                            }
+                        });
+                    }
                 } else if (change.type == 'removed') {
-
+                    const [database, collection] = change.doc.id.split(':');
+                    npm.deleteDirectory(`${npm.currentDir()}/code/source/server/http/services/${CONFIG['\\database'].mongodb[database].category}/${database}/${collection}`);
                 }
-                // console.info('**********************************')
-                // console.log['trace'](change.doc.id, change.doc.data(), change.type)
-                // console.info('**********************************')
             });
         });
     }
