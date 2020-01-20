@@ -20,20 +20,20 @@ async function model(database: string, collection: string) {
             });
         }
 
-        if (connections[database].model(modelName) && connections[database].model(modelName).base.connections[1].client.s.url === CONFIG['\\database'].mongodb[database].dsn) {
+        if (models[`${database}_${collection}`] && connections[database].model(modelName).base.connections[1].client.s.url === CONFIG['\\database'].mongodb[database].dsn) {
             // ok!
         } else {
-            if (connections[database].model(modelName)) {
+            if (models[`${database}_${collection}`]) {
                 connections[database].deleteModel(modelName);
             }
-            connections[database].model(modelName, new mongoose.Schema(CONFIG['@model'].mongodb[`${database}_${collection}`].schema), (CONFIG['@model'].mongodb[`${database}_${collection}`].collectionName || ''), {
+            models[`${database}_${collection}`] = connections[database].model(modelName, new mongoose.Schema(CONFIG['@model'].mongodb[`${database}_${collection}`].schema), (CONFIG['@model'].mongodb[`${database}_${collection}`].collectionName || ''), {
                 timestamps: {
                     createdAt: true,
                     updatedAt: true
                 }
             });
         }
-        return connections[database].model(modelName);
+        return models[`${database}_${collection}`];
     }
 }
 
