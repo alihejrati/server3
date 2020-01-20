@@ -16,7 +16,7 @@ async function serve(req, res, next) {
                 controller: ['*'],
                 method: ['get', 'post', 'put', 'delete'],
                 role: [],
-                plan: ['development']
+                plan: []
             };
             firebase.db.collection('config').doc('\\service\\http').set(CONFIG['\\service\\http']);
         }

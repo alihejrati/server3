@@ -86,7 +86,7 @@ const sizeof = require('object-sizeof');
 const copydir = require('copy-dir');
 const mkdirp = require('mkdirp');
 const deleteDirectory = require('delete-directory');
-
+const nodeJsonEqual = require('node-json-equal');
 
 export {
     app,
@@ -173,5 +173,6 @@ export {
     sizeof,
     copydir,
     mkdirp,
-    deleteDirectory
+    deleteDirectory,
+    nodeJsonEqual
 };

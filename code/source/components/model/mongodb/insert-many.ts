@@ -1,8 +1,9 @@
+import model from './model';
+
 async function insertMany(collection: string, query, options: any) {
-    const model = CONFIG['@model'].mongodb;
     const errorHandler = options['errorHandler'] || function (error) {}
     const database = options['database'] || 'db';
-    const Model = model[`${database}_${collection}`];
+    const Model = await model(database, collection);
     const documents = await new Promise((resolve, reject) => {
         Model.insertMany(query, { ordered: false }, (error, docs) => {
             if (error) {

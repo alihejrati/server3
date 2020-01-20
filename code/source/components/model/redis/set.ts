@@ -1,11 +1,12 @@
+import model from './model';
+
 async function set(key: string, value: any, options: options) {
-    const model = CONFIG['@model'].redis;
     const jwt = CONFIG['\\npm'].jwt;
     const modelRedisSetConf = CONFIG['\\component'].model.redis;
 
     key = key.replace(/\:null\:/g, `:${process.argv[2] || 'server'}:`);
     const database = options['database'] || 'db';
-    const Model = model[database];
+    const Model = await model(database);
     try {
         JSON.parse(JSON.stringify(value));
         value = JSON.stringify(value);

@@ -28,7 +28,8 @@ async function config() {
             snapshot.docChanges().forEach(change => {
                 if (change.type == 'added') {
                     const [database, collection] = change.doc.id.split(':');
-                    if (!npm.directoryExists.sync(`@server/http/services/${CONFIG['\\database'].mongodb[database].category}/${database}/${collection}`)) {
+                    CONFIG['@model'].mongodb[`${database}_${collection}`] = change.doc.data();
+                    if (!npm.directoryExists.sync(`${npm.currentDir()}/code/source/server/http/services/${CONFIG['\\database'].mongodb[database].category}/${database}/${collection}`)) {
                         npm.mkdirp.sync(`${npm.currentDir()}/code/source/server/http/services/${CONFIG['\\database'].mongodb[database].category}/${database}/${collection}`);
                         npm.fs.writeFileSync(`${npm.currentDir()}/code/source/server/http/services/${CONFIG['\\database'].mongodb[database].category}/${database}/${collection}/config.json`, JSON.stringify({
                             dbms: 'mongodb',
@@ -42,13 +43,13 @@ async function config() {
                         }, err => {
                             if (err) {
                                 console.log['error'](err);
-                            } else {
                             }
                         });
                     }
                 } else if (change.type == 'modified') {
                     const [database, collection] = change.doc.id.split(':');
-                    if (!npm.directoryExists.sync(`@server/http/services/${CONFIG['\\database'].mongodb[database].category}/${database}/${collection}`)) {
+                    CONFIG['@model'].mongodb[`${database}_${collection}`] = change.doc.data();
+                    if (!npm.directoryExists.sync(`${npm.currentDir()}/code/source/server/http/services/${CONFIG['\\database'].mongodb[database].category}/${database}/${collection}`)) {
                         npm.mkdirp.sync(`${npm.currentDir()}/code/source/server/http/services/${CONFIG['\\database'].mongodb[database].category}/${database}/${collection}`);
                         npm.fs.writeFileSync(`${npm.currentDir()}/code/source/server/http/services/${CONFIG['\\database'].mongodb[database].category}/${database}/${collection}/config.json`, JSON.stringify({
                             dbms: 'mongodb',
@@ -62,12 +63,12 @@ async function config() {
                         }, err => {
                             if (err) {
                                 console.log['error'](err);
-                            } else {
                             }
                         });
                     }
                 } else if (change.type == 'removed') {
                     const [database, collection] = change.doc.id.split(':');
+                    CONFIG['@model'].mongodb[`${database}_${collection}`] = {};
                     npm.deleteDirectory(`${npm.currentDir()}/code/source/server/http/services/${CONFIG['\\database'].mongodb[database].category}/${database}/${collection}`);
                 }
             });

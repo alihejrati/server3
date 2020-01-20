@@ -1,9 +1,10 @@
+import model from './model';
+
 async function get(key: string, options: options) {
-    const model = CONFIG['@model'].redis;
     const jwt = CONFIG['\\npm'].jwt;
     key = key.replace(/\:null\:/g, `:${process.argv[2] || 'server'}:`);
     const database = options['database'] || 'db';
-    const Model = model[database];
+    const Model = await model(database);
     const value = await new Promise((resolve, reject) => {
         Model.get(key, (err, reply) => {
             try {

@@ -1,10 +1,11 @@
 async function crud(dbms, database, collection, req, res) {
     if (dbms == 'mongodb') {
         const json = {};
-        const keys = Object.keys(CONFIG['\\database'].mongodb[database].collection[collection].schema);
+        const keys = Object.keys(CONFIG['@model'].mongodb[`${database}_${collection}`].schema);
+   
         for (const field of keys) {
             if (req.body[field] !== undefined) {
-                const _field = CONFIG['\\database'].mongodb[database].collection[collection].schema[field];
+                const _field = CONFIG['@model'].mongodb[`${database}_${collection}`].schema[field];
                 if (_field.notice) {
                     switch (_field.notice) {
                         case "isEmail": json[field] = Tools.isEmail(req.body[field]); break;

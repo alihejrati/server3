@@ -1,9 +1,10 @@
+import model from './model';
+
 async function findOneAndUpdate(collection: string, query, update, options: options) {
-    const model = CONFIG['@model'].mongodb;
     const errorHandler = options['errorHandler'] || function (error) { }
     const _options = options['options'] || { upsert: true, new: true, setDefaultsOnInsert: true, runValidators: true };
     const database = options['database'] || 'db';
-    const Model = model[`${database}_${collection}`];
+    const Model = await model(database, collection);
     if (!options['default_mode']) {
         if (query['$or']) {
             for (let index = 0; index < query['$or'].length; index++) {
