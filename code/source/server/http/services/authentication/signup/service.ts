@@ -1,4 +1,4 @@
-import Email from '../../../../../components/email/send';
+import Email from '@source/components/email/send';
 
 async function service(req, res, next, options: options) {
     const $code = options['service'].code;

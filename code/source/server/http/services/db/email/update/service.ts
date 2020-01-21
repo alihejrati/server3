@@ -9,7 +9,7 @@ async function service(req, res, next, options: options) {
         updatedAt: new Date(),
         sort: Tools.abs(req.body.sort),
         tag: Tools.isArray(req.body.tag),
-        file: {...Tools.isJson(req.body.file), 'key': 'link'},
+        file: {...Tools.isJson(req.body.file)},
         flag: { delete: false, hide: false, ...Tools.isJson(req.body.flag) }
     }};
 
