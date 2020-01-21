@@ -26,7 +26,39 @@ async function model(database: string, collection: string) {
             if (models[`${database}_${collection}`]) {
                 connections[database].deleteModel(modelName);
             }
-            models[`${database}_${collection}`] = connections[database].model(modelName, new mongoose.Schema(CONFIG['@model'].mongodb[`${database}_${collection}`].schema), (CONFIG['@model'].mongodb[`${database}_${collection}`].collectionName || ''), {
+            models[`${database}_${collection}`] = connections[database].model(modelName, new mongoose.Schema({
+                ...CONFIG['@model'].mongodb[`${database}_${collection}`].schema,
+                ...{
+                    createdAt: {
+                        "type": "Date"
+                    },
+                    updatedAt: {
+                        "type": "Date"
+                    },
+                    sort: {
+                        "type": "Number",
+                        "default": 1
+                    },
+                    tag: {
+                        "type": ["String"],
+                        "default": [],
+                        "required": true
+                    },
+                    flag: {
+                        "type": "Object",
+                        "default": {
+                            "hide": false,
+                            "delete": false
+                        },
+                        "required": true
+                    },
+                    file: {
+                        "type": "Object",
+                        "default": {},
+                        "required": true
+                    }
+                }
+            }), (CONFIG['@model'].mongodb[`${database}_${collection}`].collectionName || ''), {
                 timestamps: {
                     createdAt: true,
                     updatedAt: true
