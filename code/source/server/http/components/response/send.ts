@@ -1,8 +1,14 @@
 async function send(req, res, options: options) {
     function resSend(data) {
-        mongodb.insert('request', JSON.parse(npm.jsonStringifySafe({response: data, _: req['_']})));
+        if (CONFIG['\\logger'].areRequestsSaved) {
+            mongodb.insert('request', JSON.parse(npm.jsonStringifySafe({
+                response: data,
+                _: req['_']
+            })));
+        }
         return res.status(req['_'].status).send(data);
     }
+
     function standard(arrayList) {
         let counter = 0;
         const jsonObj = {};
@@ -14,12 +20,12 @@ async function send(req, res, options: options) {
                 if (value) {
                     if (Array.isArray(value)) {
                         value.push(iterator);
-                        npm.objectPath.set(jsonObj, key, value); 
+                        npm.objectPath.set(jsonObj, key, value);
                     } else {
-                        npm.objectPath.set(jsonObj, key, [value, iterator]); 
+                        npm.objectPath.set(jsonObj, key, [value, iterator]);
                     }
                 } else {
-                    npm.objectPath.set(jsonObj, key, iterator); 
+                    npm.objectPath.set(jsonObj, key, iterator);
                 }
             } else {
                 jsonObj[counter] = iterator;
@@ -28,6 +34,7 @@ async function send(req, res, options: options) {
         }
         return jsonObj;
     }
+
     function standardOne(element) {
         delete element['label'];
         return element;
