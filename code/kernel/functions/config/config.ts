@@ -15,15 +15,25 @@ async function config() {
         });
         firebase.db.collection('config').onSnapshot(snapshot => {
             snapshot.docChanges().forEach(change => {
-                // console.log(`[change.type]`, change.type);
                 CONFIG[change.doc.id] = {
                     ...change.doc.data()
                 }
-                // console.info('**********************************')
-                // console.log['fatal']((CONFIG['\\database']), '#########', change.type)
-                // console.info('**********************************')
             });
         });
+
+        firebase.db.collection('channel').onSnapshot(snapshot => {
+            snapshot.docChanges().forEach(change => {
+                if (change.type == 'added') {
+                    try {
+                        require(`@event/${change.doc.data().event.replace(/\./g, '/')}.ts`).default(change.doc.data());
+                        firebase.db.collection('channel').doc(change.doc.id).delete();
+                    } catch (error) {
+                        firebase.db.collection('channel').doc(change.doc.id).delete();
+                    }
+                }
+            });
+        });
+
         firebase.db.collection('config').doc('\\database').collection('mongodb').onSnapshot(snapshot => {
             snapshot.docChanges().forEach(change => {
                 if (change.type == 'added') {

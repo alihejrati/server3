@@ -12,6 +12,7 @@
             "@file/*": ["file/*"],
             "@kernel/*": ["code/kernel/*"],
             "@source/*": ["code/source/*"],
+            "@event/*": ["code/source/event/*"],
             "@server/*": ["code/source/server/*"]
         }
     }
