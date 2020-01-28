@@ -4,6 +4,7 @@ declare module NodeJS {
         npm: typeof import('@source/bootstrap/helper/npm/packages'),
         mongodb: {
             distinct: typeof import('@source/components/model/mongodb/distinct').default,  
+            deleteMany: typeof import('@source/components/model/mongodb/delete-many').default,  
             find: typeof import('@source/components/model/mongodb/find').default,     
             findOneAndUpdate: typeof import('@source/components/model/mongodb/find-one-and-update').default,
             findOne: typeof import('@source/components/model/mongodb/find-one').default,
@@ -25,6 +26,7 @@ declare module NodeJS {
 declare const npm: typeof import('@source/bootstrap/helper/npm/packages');
 declare const mongodb: {
     distinct: typeof import('@source/components/model/mongodb/distinct').default,  
+    deleteMany: typeof import('@source/components/model/mongodb/delete-many').default,  
     find: typeof import('@source/components/model/mongodb/find').default,     
     findOneAndUpdate: typeof import('@source/components/model/mongodb/find-one-and-update').default,
     findOne: typeof import('@source/components/model/mongodb/find-one').default,

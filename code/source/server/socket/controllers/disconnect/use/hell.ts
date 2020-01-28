@@ -15,7 +15,12 @@ async function hell(socket, event, message, next, options: options) {
         event: event,
         message: message,
         _: socket['_']
-    }, { options: { runValidators: true } });
+    }, { options: { runValidators: true } })
+    .then(() => {
+        mongodb.deleteMany('socket', {
+            state: 'disconnect',
+        }, { options: { runValidators: true } });
+    });
 }
 
 export default hell;

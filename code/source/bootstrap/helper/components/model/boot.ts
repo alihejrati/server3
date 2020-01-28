@@ -1,4 +1,5 @@
 import distinct from '@source/components/model/mongodb/distinct';
+import deleteMany from '@source/components/model/mongodb/delete-many';
 import find from '@source/components/model/mongodb/find';
 import findOneAndUpdate from '@source/components/model/mongodb/find-one-and-update';
 import findOne from '@source/components/model/mongodb/find-one';
@@ -14,6 +15,7 @@ import set from '@source/components/model/redis/set';
 async function boot(options: options) {
     global.mongodb = {
         distinct: distinct,  
+        deleteMany: deleteMany,
         find: find,     
         findOneAndUpdate: findOneAndUpdate,
         findOne: findOne,
