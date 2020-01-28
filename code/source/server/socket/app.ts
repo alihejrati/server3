@@ -10,10 +10,8 @@ async function app(options: options) {
         import('./connection'),
         import('./listen')
     ]);
-    await Promise.all([
-        connection.default(),
-        listen.default()
-    ]);
+    await connection.default();
+    await listen.default();
 }
 
 export default callback(app);

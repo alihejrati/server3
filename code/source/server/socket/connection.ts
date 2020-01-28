@@ -13,7 +13,6 @@ async function connection(options: options) {
     
     semaphore.on('/server/socket/ready', () => {
         const io = npm.socketIo(npm.server);
-        
         io.use(npm.socketioWildcard());
 
         io.on('connection', (socket) => {
