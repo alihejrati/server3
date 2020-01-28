@@ -1,7 +1,9 @@
 async function listen(options: options) {
     const socket = CONFIG['\\server'].socket;
     socket.host = socket.host === '[ip]' ? await npm.internalIp.v4() : socket.host;
-    npm.server = npm.server(handler).listen(socket.port, socket.host);
+    npm.server = npm.server(handler).listen(socket.port, socket.host, () => {
+        console.log['trace'](`${socket.host}:${socket.port}`);
+    });
 
     function handler(req, res) {
         res.writeHead(200);
