@@ -55,7 +55,7 @@ async function model(database: string, collection: string) {
                     file: {
                         "type": "Object",
                         "default": {
-                            "key": "value"
+                            // "key": "value"
                         },
                         "required": true
                     }

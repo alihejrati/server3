@@ -2,9 +2,10 @@ const $config = require('../config.json');
 
 async function service(req, res, next, options: options) {
     const $code = options['service'].code;
+    const $dbms = $config['dbms'];
     const $database = $config['database'];
     const $collection = $config['collection'];
-    const json = {...await crud('mongodb', $database, $collection, req, res), ...{
+    const json = {...await crud($dbms, $database, $collection, req, res), ...{
         createdAt: new Date(),
         updatedAt: new Date(),
         sort: Tools.abs(req.body.sort),
